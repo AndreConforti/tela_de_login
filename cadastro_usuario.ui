@@ -1,104 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>frm_login</class>
- <widget class="QMainWindow" name="frm_login">
+ <class>frm_novo_usuario</class>
+ <widget class="QMainWindow" name="frm_novo_usuario">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>437</width>
-    <height>497</height>
+    <width>435</width>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Tela de Login</string>
-  </property>
-  <property name="whatsThis">
-   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <string>Cadastro de Novos Usuários</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(212, 212, 212);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="btn_cadastrar">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>440</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 85, 0);</string>
-    </property>
-    <property name="text">
-     <string>Cadastrar</string>
-    </property>
-    <property name="shortcut">
-     <string>C</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_sair">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>350</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 85, 0);</string>
-    </property>
-    <property name="text">
-     <string>Sair</string>
-    </property>
-    <property name="shortcut">
-     <string>S</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_entrar">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>350</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 85, 0);</string>
-    </property>
-    <property name="text">
-     <string>Entrar</string>
-    </property>
-    <property name="shortcut">
-     <string>E</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>30</y>
-      <width>271</width>
-      <height>61</height>
+      <x>30</x>
+      <y>0</y>
+      <width>381</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">
@@ -107,17 +32,20 @@
      </font>
     </property>
     <property name="text">
-     <string>TELA DE LOGIN</string>
+     <string>CADASTRO DE NOVOS USUÁRIOS</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="lne_usuario">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>190</y>
       <width>381</width>
       <height>41</height>
      </rect>
@@ -134,14 +62,14 @@
      <string/>
     </property>
     <property name="placeholderText">
-     <string>Usuário</string>
+     <string>Digite o login</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lne_senha">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>210</y>
+      <y>260</y>
       <width>381</width>
       <height>41</height>
      </rect>
@@ -161,16 +89,16 @@
      <enum>QLineEdit::Password</enum>
     </property>
     <property name="placeholderText">
-     <string>Senha</string>
+     <string>Digite a senha</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLineEdit" name="lne_rptsenha">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>440</y>
-      <width>141</width>
-      <height>51</height>
+      <x>30</x>
+      <y>330</y>
+      <width>381</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -178,15 +106,96 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>Não é usuário?</string>
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Repita a senha</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_cadastrar">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>490</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 85, 0);</string>
+    </property>
+    <property name="text">
+     <string>Cadastrar</string>
+    </property>
+    <property name="shortcut">
+     <string>C</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_voltar">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>490</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 85, 0);</string>
+    </property>
+    <property name="text">
+     <string>Voltar</string>
+    </property>
+    <property name="shortcut">
+     <string>V</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lne_nome">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Digite o nome</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_aviso">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>270</y>
+      <y>400</y>
       <width>381</width>
       <height>51</height>
      </rect>
