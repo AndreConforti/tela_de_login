@@ -40,7 +40,11 @@ def cadastrar_usuario():
 
     print(nome, usuario, senha, c_senha)
 
-
+    if senha == c_senha:
+        cadastro.lbl_aviso.setText("Usuário cadastrado com sucesso!")
+    else:
+        cadastro.lbl_aviso.setText("As senhas estão diferentes. Repita a senha corretamente")
+    
 def verificar_cadastro():
     cadastro.close()
     confirma_cadastro.show()
@@ -51,9 +55,17 @@ def cancelar_cadastro():
     cadastro.lne_usuario.setText("")
     cadastro.lne_senha.setText("")
     cadastro.lne_rptsenha.setText("")
+    cadastro.lbl_aviso.setText("")
     cadastro.close()
     login.show()
 
+
+def limpar_cadastro():
+    cadastro.lne_nome.setText("")
+    cadastro.lne_usuario.setText("")
+    cadastro.lne_senha.setText("")
+    cadastro.lne_rptsenha.setText("")
+    cadastro.lbl_aviso.setText("")
 
 def voltar_login():
     confirma_cadastro.close()
@@ -72,8 +84,10 @@ login.btn_sair.clicked.connect(sair_do_sistema)
 login.btn_cadastrar.clicked.connect(chamar_cadastro)
 logado.btn_encerrar.clicked.connect(logout)
 cadastro.btn_cadastrar.clicked.connect(cadastrar_usuario)
-cadastro.btn_voltar.clicked.connect(cancelar_cadastro)
+cadastro.btn_cancelar.clicked.connect(cancelar_cadastro)
+cadastro.btn_limpar.clicked.connect(limpar_cadastro)
 confirma_cadastro.btn_voltar.clicked.connect(voltar_login)
+
 
 login.show()
 app.exec()

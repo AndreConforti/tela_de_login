@@ -140,10 +140,10 @@
      <string>Cadastrar</string>
     </property>
     <property name="shortcut">
-     <string>C</string>
+     <string>Return</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_voltar">
+   <widget class="QPushButton" name="btn_cancelar">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -161,10 +161,10 @@
      <string notr="true">background-color: rgb(255, 85, 0);</string>
     </property>
     <property name="text">
-     <string>Voltar</string>
+     <string>Cancelar</string>
     </property>
     <property name="shortcut">
-     <string>V</string>
+     <string>C</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lne_nome">
@@ -212,6 +212,33 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_limpar">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>490</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 85, 0);</string>
+    </property>
+    <property name="text">
+     <string>Limpar</string>
+    </property>
+    <property name="shortcut">
+     <string>P</string>
     </property>
    </widget>
   </widget>
