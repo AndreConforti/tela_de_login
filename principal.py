@@ -1,6 +1,13 @@
 from cmath import log
 from PyQt5 import QtWidgets, uic
-import sqlite3
+import mysql.connector
+
+banco = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    passwd = '',
+    database = 'banco_cadastro'
+)
 
 def verificar_login():
     login.lbl_aviso.setText("")
@@ -38,13 +45,22 @@ def cadastrar_usuario():
     senha = cadastro.lne_senha.text()
     c_senha = cadastro.lne_rptsenha.text()
 
-    print(nome, usuario, senha, c_senha)
-
     if senha == c_senha:
-        cadastro.lbl_aviso.setText("Usuário cadastrado com sucesso!")
+        try:
+            cursor = banco.cursor()
+            cursor.execute("INSERT INTO cadastro VALUES ('"+nome+"', '"+usuario+"', '"+senha+"')")
+
+            banco.commit()
+            banco.close()
+            cadastro.lbl_aviso.setText("Usuário cadastrado com sucesso!")
+        
+        except mysql.Error as erro:
+            print("Erro ao inserir os dados: ", erro)
+
     else:
         cadastro.lbl_aviso.setText("As senhas estão diferentes. Repita a senha corretamente")
-    
+
+
 def verificar_cadastro():
     cadastro.close()
     confirma_cadastro.show()
