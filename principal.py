@@ -13,14 +13,20 @@ def verificar_login():
     login.lbl_aviso.setText("")
     usuario = login.lne_usuario.text().upper().strip()
     senha = login.lne_senha.text().strip()
-    if usuario == "ANDRE" and senha == "123":
-        login.lne_usuario.setText("")
-        login.lne_senha.setText("")
+
+    try:
+        cursor = banco.cursor()
+        cursor.execute("SELECT senha FROM cadastro WHERE login = '{}'".format(usuario))
+        senha_bd = cursor.fetchall()
+        print(senha_bd[0][0])
+    except:
+        login.lbl_aviso.setText("Usuário não está cadastrado no Sistema")
+
+    '''if senha == senha_bd[0][0]:
         login.close()
         logado.show()
     else:
-        login.lbl_aviso.setText("Dados de login incorretos")
-
+        login.lbl_aviso.setText("Senha não confere")'''
 
 def sair_do_sistema():
     login.close()
@@ -54,7 +60,7 @@ def cadastrar_usuario():
             banco.close()
             cadastro.lbl_aviso.setText("Usuário cadastrado com sucesso!")
         
-        except mysql.Error as erro:
+        except mysql.connector.Error as erro:
             print("Erro ao inserir os dados: ", erro)
 
     else:
