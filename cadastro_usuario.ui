@@ -214,7 +214,7 @@
      <string>Digite a senha</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lne_rptSenha">
+   <widget class="QLineEdit" name="lne_c_senha">
     <property name="geometry">
      <rect>
       <x>30</x>
