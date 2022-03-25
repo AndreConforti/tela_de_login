@@ -2,19 +2,32 @@ from PyQt5 import QtWidgets, uic
 import sqlite3
 
 
-
 # Definindo as funções
 def verificar_login():
     principal.lbl_aviso.setText('')
     usuario = principal.lne_usuario.text()
     senha = principal.lne_senha.text()
-    if usuario == 'andre' and senha == '123':
-        principal.lne_usuario.setText('')
-        principal.lne_senha.setText('')
-        principal.close()
-        logado.show()
+
+    # Conecta com o banco de dados
+    banco = sqlite3.connect('banco_cadastro.db')
+    cursor = banco.cursor()
+    cursor.execute(f'SELECT senha FROM cadastro WHERE usuario = "{usuario}"')
+    senha_bd = cursor.fetchall()
+    
+    if senha_bd == []:  
+        principal.lbl_aviso.setText('Usuário não cadastrado')
     else:
-        principal.lbl_aviso.setText('Usuário ou Senha incorretos')
+        if senha == senha_bd[0][0]:
+            principal.lne_usuario.setText('')
+            principal.lne_senha.setText('')
+            principal.close()
+            logado.show()
+        else:
+            principal.lbl_aviso.setText('Usuário ou Senha incorretos')
+    
+    # Encerra a conexão com o banco de dados
+    cursor.close()
+    banco.close()
 
 
 def logout():
